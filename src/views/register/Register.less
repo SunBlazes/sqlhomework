@@ -1,0 +1,288 @@
+.register-enter-active,
+.register-leave-active {
+  transition: opacity 0.1s;
+}
+.register-enter {
+  opacity: 0;
+}
+.register {
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .form {
+    padding: 30px 60px;
+    box-sizing: border-box;
+    width: 500px;
+    background-color: #202020;
+    .vertical-center() {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .logo {
+      text-align: center;
+      background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+      background-clip: text;
+      color: transparent;
+      background-size: 10%;
+      background-position: center center;
+    }
+    .form-item {
+      margin-top: 15px;
+      input {
+        font-size: 20px;
+        width: 100%;
+        height: 50px;
+        border: none;
+        background-color: #2b2b2b;
+        padding: 0 15px;
+        outline: none;
+        color: #f4f4f4;
+        box-sizing: border-box;
+        &.error {
+          background-color: rgb(85, 67, 67) !important;
+        }
+        &:focus {
+          background-color: rgb(72, 72, 72);
+        }
+      }
+      position: relative;
+      z-index: 1;
+      .required {
+        right: 15px;
+        .vertical-center;
+        font-weight: bold;
+        color: white;
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
+      .error_info {
+        color: var(--danger-color);
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        opacity: 0;
+        transition: all 0.5s;
+        z-index: -1;
+        &.appear {
+          opacity: 1;
+          bottom: -23px;
+        }
+      }
+    }
+    .email {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      .req_email {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        background-color: white;
+        border-radius: 999px;
+        user-select: none;
+        cursor: pointer;
+        flex: 1;
+        text-align: center;
+      }
+      input {
+        background-color: #2b2b2b;
+        border: none;
+        padding: 0 20px;
+        color: white;
+        font-size: 20px;
+        flex: 7;
+        margin-left: 15px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+      }
+      .error_info {
+        color: var(--danger-color);
+        position: absolute;
+        right: 0;
+        top: 0px;
+        opacity: 0;
+        transition: all 0.3s;
+        z-index: 0;
+        &.appear {
+          opacity: 1;
+          top: -23px;
+        }
+      }
+    }
+    .verify_email {
+      margin-top: 15px;
+      position: relative;
+      input {
+        font-size: 20px;
+        width: 100%;
+        height: 40px;
+        border: none;
+        background-color: #2b2b2b;
+        padding: 0 15px;
+        outline: none;
+        color: #f4f4f4;
+        box-sizing: border-box;
+      }
+      .error_info {
+        color: var(--danger-color);
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        opacity: 0;
+        transition: all 0.5s;
+        z-index: 0;
+        &.appear {
+          opacity: 1;
+          bottom: -23px;
+        }
+      }
+    }
+    .welcome {
+      margin: 15px 0;
+      text-align: center;
+      position: relative;
+      h3 {
+        display: inline-block;
+        width: 100%;
+      }
+      &::before {
+        content: "";
+        .vertical-center;
+        width: 20%;
+        height: 1px;
+        background-color: white;
+        left: 0;
+      }
+      &::after {
+        content: "";
+        .vertical-center;
+        width: 20%;
+        height: 1px;
+        background-color: white;
+        right: 0;
+      }
+    }
+    .label {
+      color: white;
+      margin-top: 25px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+    .register-btn {
+      letter-spacing: 2px;
+      font-size: 20px;
+      user-select: none;
+      display: block;
+      padding: 10px;
+      position: relative;
+      color: var(--border-color);
+      overflow: hidden;
+      margin: 0 auto;
+      width: 180px;
+      text-align: center;
+      margin-top: 25px;
+      cursor: not-allowed;
+      &.complete {
+        background-color: #03e9f4;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 0 5px var(--border-color), 0 0 25px var(--border-color),
+          0 0 50px var(--border-color), 0 0 100px var(--border-color);
+      }
+      span {
+        position: absolute;
+        display: block;
+      }
+      span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, var(--border-color));
+        animation: btn-anim1 1s linear infinite;
+      }
+      @keyframes btn-anim1 {
+        0% {
+          left: -100%;
+        }
+        50%,
+        100% {
+          left: 100%;
+        }
+      }
+      span:nth-child(2) {
+        top: -100%;
+        right: 0%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--border-color)
+        );
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+      @keyframes btn-anim2 {
+        0% {
+          top: -100%;
+        }
+        50%,
+        100% {
+          top: 100%;
+        }
+      }
+      span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(-90deg, transparent, var(--border-color));
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
+      @keyframes btn-anim3 {
+        0% {
+          right: -100%;
+        }
+        50%,
+        100% {
+          right: 100%;
+        }
+      }
+      span:nth-child(4) {
+        bottom: -100%;
+        left: 0%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to top, transparent, var(--border-color));
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: 0.75s;
+      }
+      @keyframes btn-anim4 {
+        0% {
+          bottom: -100%;
+        }
+        50%,
+        100% {
+          bottom: 100%;
+        }
+      }
+    }
+    > a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
